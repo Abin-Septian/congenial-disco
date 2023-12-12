@@ -9,7 +9,7 @@ type props = {
 };
 
 const ChatList = (props: props) => {
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [data, setData] = useState<any[]>([]);
 
   const fetchData = async () => {
@@ -45,7 +45,7 @@ const ChatList = (props: props) => {
   useEffect(() => {
     setTimeout(() => {
       fetchData();
-    }, 1000);
+    }, 500);
   }, []);
 
   return (

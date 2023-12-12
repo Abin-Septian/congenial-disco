@@ -12,7 +12,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   const ref = useRef(null);
-  const [menuActive, setMenu] = useState<"todo" | "chat" | undefined>("chat");
+  const [menuActive, setMenu] = useState<"todo" | "chat" | undefined>();
 
   useOnClickOutside(ref, () => setMenu(undefined));
 

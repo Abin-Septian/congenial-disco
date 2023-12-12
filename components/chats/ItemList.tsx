@@ -13,22 +13,26 @@ const ItemList = ({ data, ...props }: props) => {
           <div
             key={index}
             onClick={() => props.onClick(el.room_id)}
-            className="relative flex w-full cursor-pointer py-4"
+            className="relative flex w-full cursor-pointer items-center gap-4 py-4"
           >
             <div>
-              <div className="h-16 w-16">test</div>
+              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#2F80ED] text-lg font-semibold uppercase text-white">
+                {el.room_name.slice(0, 1)}
+              </div>
             </div>
             <div className="flex w-[calc(100%-5rem)] flex-col">
               <div className="flex w-full gap-[17px]">
                 <div className="w-max max-w-full break-words font-semibold text-[#2F80ED]">
-                  {el .room_name}
+                  {el.room_name}
                 </div>
                 <div className="w-max whitespace-nowrap">02/06/2021 10:45</div>
               </div>
               <div>{el.sender}</div>
               <div>{el.chat}</div>
             </div>
-            <div className="absolute right-0 top-1/2 h-2 w-2 rounded-full bg-red-400"></div>
+            {!el.is_read && (
+              <div className="absolute right-0 top-1/2 h-2 w-2 rounded-full bg-red-400"></div>
+            )}
           </div>
         );
       })}
